@@ -7,11 +7,24 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-@import '../variables.css';
+@import '../../components/variables.css';
 
-.root {
+.coverImage {
+	width: 100%;
+    background-size: cover;
+    height:700px;
 }
 
-.container {
-  max-width: var(--max-content-width);
+
+.contentContainer{
+
+}
+
+.profileContainer{
+
+} 
+
+.stickyBox {
+position: sticky;
+top: 0px;
 }
