@@ -45,21 +45,34 @@ const profileInfo = {
   },
   listing: {
     type: "Private Room",
+    propertyType: "Private House",
+    checkInTime: "12pm-12am",
+    checkOutTime: "12pm (noon)",
     bedrooms: 1,
     guestsIncluded: 2,
     guestsMax: 5,
     beds: 1,
+    bathrooms: 1,
     pricePerNight: 75,
     images: {
       main: 'd7329e9a_original.jpg',
 
     },
     instantBookable: true,
+    description: {
+      about: 'Our renovated 1905 home is quietly tucked away in Historic Morehead Hill, a Durham neighborhood just southwest of the city center. There a sunny room, cozy bed and full, private bathroom await you. From here, it\'s a 10-minute walk to Downtown, DPAC, & Duke East. See the Getting Around section!) and the map below to help you determine how far we are from your favorite spot. At home, we provide a quiet and peaceful room after a day of site-seeing. We encourage you to read our entire listing.',
+      theSpace: 'Our historic home built around 1905 has been completely renovated and updated. The home is located in a diverse, emerging, hsitoric neighborhood called Morehead Hill (see the Neighborhood section!). It is very safe, active, and near everything if you\'re willing to walk (we and our neighbirs walk just about everywhere - see the Getting Around section!). Overall the home is just shy of 1600 sq/ft, with 2 bedrooms and 2 baths. Your bedroom, which has a full-size bed and an attached, private, full bath, is located in the front of the house, just inside the front door for your ease in the coming and going. Plus, the room has both honeyconb shades and black-out drapes for adjusting your desired level of privacy and light. Your quiet, sunny room includes a desk, reading chair, and the bed is exra confy with a pillow top.   People spend a lot of time outside enjoyin the beautiful NorthCarolina weather and our neghborhood is no different. There is a large front porch for sipping some tea and a wonderful screened in back deck for monring coffee or relaxng witha cold beer. While you can\'t see it form the street, our backyard is liek a green cave with mature trees and a little creek. We especially love how private, quiet and wooded it is even though we are so close to downtown. from our screened-in back porch we\'ve spotted foxes, owls, hawks, raccoons, opossums, and an abundance of squirrels and birds.',      
+      guestAccess: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend augue ac libero rhoncus, vitae posuere enim tempus. Nullam pellentesque ac ipsum vitae faucibus. Curabitur sit amet tristique justo. Nam ut mauris faucibus, elementum mauris eu, pretium mauris. Donec nec bibendum tellus. Quisque fringilla dignissim varius. Vivamus non mollis urna, vel imperdiet mi. Sed posuere magna turpis, vitae aliquet mauris luctus a. Nulla facilisi. Proin ac rhoncus urna, et ornare ex. Nullam consequat nunc lorem, nec rutrum sem ullamcorper non. In interdum sagittis lectus, non finibus massa vehicula quis. Phasellus vestibulum sed elit porta bibendum. Vivamus pretium commodo lorem, ultricies rutrum dui laoreet sed. Praesent accumsan arcu eget orci feugiat porttitor. Donec ultricies tempus leo a tristique. Morbi lacus nisi, egestas in sapien sed, tempus eleifend leo. Sed aliquam convallis leo, fringilla tristique ante faucibus eget. Maecenas velit tortor, consectetur vel lectus sit amet, suscipit suscipit nunc. Quisque commodo sollicitudin nibh, eget vehicula erat finibus vitae. Curabitur mattis porta eros, eget dictum nisl hendrerit at. Donec porta pretium sodales. Vivamus tortor metus, ornare et sapien a, congue sodales ligula. Morbi vitae dui tincidunt, tristique neque ac, mollis ligula. Proin ac justo quis ex dapibus rutrum. Maecenas vitae libero purus. Curabitur quam diam, facilisis et ligula ac, pulvinar finibus ipsum. ',
+      interactionWithGuests: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend augue ac libero rhoncus, vitae posuere enim tempus. Nullam pellentesque ac ipsum vitae faucibus. Curabitur sit amet tristique justo. Nam ut mauris faucibus, elementum mauris eu, pretium mauris. Donec nec bibendum tellus. Quisque fringilla dignissim varius. Vivamus non mollis urna, vel imperdiet mi. Sed posuere magna turpis, vitae aliquet mauris luctus a. Nulla facilisi. Proin ac rhoncus urna, et ornare ex. Nullam consequat nunc lorem, nec rutrum sem ullamcorper non. In interdum sagittis lectus, non finibus massa vehicula quis. Phasellus vestibulum sed elit porta bibendum. Vivamus pretium commodo lorem, ultricies rutrum dui laoreet sed. Praesent accumsan arcu eget orci feugiat porttitor. Donec ultricies tempus leo a tristique. Morbi lacus nisi, egestas in sapien sed, tempus eleifend leo. Sed aliquam convallis leo, fringilla tristique ante faucibus eget. Maecenas velit tortor, consectetur vel lectus sit amet, suscipit suscipit nunc. Quisque commodo sollicitudin nibh, eget vehicula erat finibus vitae. Curabitur mattis porta eros, eget dictum nisl hendrerit at. Donec porta pretium sodales. Vivamus tortor metus, ornare et sapien a, congue sodales ligula. Morbi vitae dui tincidunt, tristique neque ac, mollis ligula. Proin ac justo quis ex dapibus rutrum. Maecenas vitae libero purus. Curabitur quam diam, facilisis et ligula ac, pulvinar finibus ipsum. ',
+      other: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend augue ac libero rhoncus, vitae posuere enim tempus. Nullam pellentesque ac ipsum vitae faucibus. Curabitur sit amet tristique justo. Nam ut mauris faucibus, elementum mauris eu, pretium mauris. Donec nec bibendum tellus. Quisque fringilla dignissim varius. Vivamus non mollis urna, vel imperdiet mi. Sed posuere magna turpis, vitae aliquet mauris luctus a. Nulla facilisi. Proin ac rhoncus urna, et ornare ex. Nullam consequat nunc lorem, nec rutrum sem ullamcorper non. In interdum gittis lectus, non finibus massa vehicula quis. Phasellus vestibulum sed elit porta bibendum. Vivamus pretium commodo lorem, ultricies rutrum dui laoreet sed. Praesent accumsan arcu eget orci feugiat porttitor. Donec ultricies tempus leo a tristique. Morbi lacus nisi, egestas in sapien sed, tempus eleifend leo. Sed aliquam convallis leo, fringilla tristique ante faucibus eget. Maecenas velit tortor, consectetur vel lectus sit amet, suscipit suscipit nunc. Quisque commodo sollicitudin nibh, eget vehicula erat finibus vitae. Curabitur mattis porta eros, eget dictum nisl hendrerit at. Donec porta pretium sodales. Vivamus tortor metus, ornare et sapien a, congue sodales ligula. Morbi vitae dui tincidunt, tristique neque ac, mollis ligula. Proin ac justo quis ex dapibus rutrum. Maecenas vitae libero purus. Curabitur quam diam, facilisis et ligula ac, pulvinar finibus ipsum. ',
+    }
   }
 };
 
 const avatar = require('../../../public/avatars/' + profileInfo.host.avatarImage);
 const mainImage = require('../../../public/profileImages/' + profileInfo.listing.images.main);
+const piggyBank = require('../../../public/piggy-bank.png');
+
 
 class Profile extends React.Component {
   static propTypes = {
@@ -126,49 +139,111 @@ class Profile extends React.Component {
                     { profileInfo.listing.beds == 1 ? profileInfo.listing.beds + " Bed" : profileInfo.listing.beds + " Beds" }
                   </Col>
               </Row>
-              <Row>
+              <Row className={s.guaranteeContainer}>
+                <Col xs={6} md={1}>
+                  <img src={piggyBank} /> 
+                </Col>
+                <Col>
+                  <h3 className={s.guranteeHeadline}>100% Refundable</h3>
+                  <p className={s.guranteeText}>
+                    Cancel up to 5 days before your trip amd get a full refund, including service fees.
+                  </p>
+                </Col>
+              </Row>
+              <Row className={s.contentDescription}>
+                  <h2>About This Listing </h2>
+                  {profileInfo.listing.description.about}
+                   
+                  { profileInfo.listing.description.theSpace ? 
+                    <div>
+                      <h3>The Space</h3>
+                      <p>{profileInfo.listing.description.theSpace}</p>
+                    </div> 
 
+                    : '' }
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at risus risus. Vestibulum laoreet risus diam, nec condimentum turpis consequat sed. Cras orci massa, luctus consequat ligula sit amet, tempor varius sapien. Ut enim nibh, porttitor nec porttitor eget, ornare ut ex. Sed ut cursus augue, id ultricies ligula. Praesent vulputate turpis a pharetra dictum. Nullam felis mauris, gravida quis ante sed, posuere laoreet ipsum. Integer ac lacinia lacus. Suspendisse enim felis, sodales sed tempus eu, egestas in elit. Sed at turpis ac nisl ultricies cursus ut ac lectus. Ut est nulla, finibus sit amet quam et, volutpat tempus nunc. Nunc imperdiet vehicula ligula vel dignissim. Morbi volutpat sapien et magna laoreet consectetur.
+                  { profileInfo.listing.description.guestAccess ? 
+                    <div>
+                      <h3>Guest Access</h3>
+                      <p>{profileInfo.listing.description.guestAccess}</p>
+                    </div> 
 
-Ut malesuada, quam vel lobortis convallis, magna neque auctor nisl, quis lacinia tellus eros at eros. Morbi massa lacus, condimentum eleifend dignissim ac, commodo nec nibh. Aenean vel odio metus. Sed sed faucibus leo, ut facilisis libero. Maecenas porttitor ante sit amet porttitor consectetur. Aenean at arcu eget libero malesuada rhoncus eu ut felis. Proin eleifend, ipsum eget rutrum pulvinar, tortor eros sollicitudin ante, et volutpat augue turpis eget mi. Praesent ac rutrum mauris.
+                    : '' }
 
-Aliquam commodo semper venenatis. Nullam vel nunc viverra, faucibus urna nec, dapibus enim. Sed et lacinia lacus. Vivamus non rhoncus sapien. Integer maximus iaculis tempus. Maecenas facilisis dolor vitae volutpat elementum. Sed aliquet fringilla aliquet. Nam sit amet dui nec mi porta sollicitudin. Praesent euismod tristique justo convallis mollis. Ut quis facilisis lacus. Pellentesque tristique accumsan libero, vitae facilisis lectus. Curabitur laoreet tellus mauris, ut rhoncus turpis efficitur id. Phasellus ut risus pharetra, molestie elit eu, suscipit arcu. Curabitur ac ligula a justo blandit consequat. Cras ornare dolor vitae quam accumsan eleifend. In pellentesque sollicitudin tortor.
+                    { profileInfo.listing.description.interactionWithGuests ? 
+                    <div>
+                      <h3>Interaction with Guests</h3>
+                      <p>{profileInfo.listing.description.interactionWithGuests}</p>
+                    </div> 
 
-Nullam dictum vitae ipsum ac mattis. Pellentesque nisi velit, maximus in libero id, faucibus feugiat mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at sapien lobortis, venenatis nisl sit amet, efficitur tellus. Aliquam venenatis in nisl ac eleifend. Nullam quis dictum neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In volutpat nibh scelerisque justo interdum dignissim.
+                    : '' }
 
-In hendrerit vulputate eleifend. Nullam urna neque, porta ac massa sed, pretium ullamcorper sapien. Curabitur fermentum pulvinar mauris, eget hendrerit velit dictum vel. Morbi in ultrices lectus, at mollis ligula. Integer blandit dignissim magna, vitae laoreet nisi accumsan ac. Phasellus finibus dapibus placerat. Duis sed dapibus ante. Suspendisse luctus ultrices gravida. Nulla nec semper nunc.
+                    { profileInfo.listing.description.other ? 
+                    <div>
+                      <h3>Other things to note</h3>
+                      <p>{profileInfo.listing.description.other}</p>
+                    </div> 
 
-Donec convallis aliquam magna, placerat venenatis mi aliquam nec. Duis viverra commodo augue ac malesuada. Ut eleifend massa vulputate varius varius. Donec urna eros, placerat ut tristique ac, luctus et ipsum. Nullam placerat quam risus, ut lobortis tellus viverra ac. Donec vel metus lacus. In hac habitasse platea dictumst. Suspendisse vulputate at sem eget vestibulum. Pellentesque sagittis lectus sed nisl tristique cursus. Pellentesque lacus nisi, bibendum posuere cursus quis, commodo a mauris. Suspendisse risus quam, sagittis ut urna eu, molestie venenatis mauris. Sed volutpat finibus ipsum, vitae placerat velit mollis et. Nunc tempor feugiat hendrerit. Etiam at diam a libero faucibus porttitor non at ipsum.
+                    : '' }
 
-Nunc in dolor vitae diam varius congue eu id quam. Sed ac arcu ac ipsum consectetur elementum pellentesque quis est. Ut id lectus vel risus mollis malesuada. In hac habitasse platea dictumst. Etiam porta metus vitae ipsum egestas efficitur quis eu orci. Quisque nec consectetur turpis. Quisque euismod dignissim quam, ac rhoncus urna lobortis vitae.
+                    <Link to="">Contact Host</Link>
+              </Row>
+              <Row className={s.theSpaceContainer}>
+                <Col md={2} className={s.midcontentLeftHeader}>
+                  The Space
+                </Col>
+                <Col md={5} className={s.midcontentColumnOne}>
 
-Cras consectetur eleifend ultricies. Aenean imperdiet ligula quis diam eleifend, eget mollis nisi feugiat. Sed in dolor consequat, auctor dui sed, ultrices tortor. Nulla id odio ut enim consequat aliquet. Morbi rutrum, diam vel consequat dignissim, augue purus pellentesque lacus, eget sodales felis magna mollis metus. Vivamus at mi luctus, vulputate lacus ut, dictum elit. Vivamus quis risus nunc. Phasellus erat sapien, convallis non nulla sit amet, interdum venenatis urna. Aliquam placerat bibendum est, ac tempor ipsum dictum vel. Aenean gravida turpis et velit molestie maximus. Ut sagittis urna sed quam scelerisque tincidunt. Mauris ultrices mauris et leo pellentesque dapibus. Nulla vestibulum ligula in purus finibus, vitae posuere sem sodales.
+                    <li>Accomodates: { profileInfo.listing.guestsIncluded }</li>
+                    <li>Bathrooms: { profileInfo.listing.bathrooms }</li>
+                    <li>Bedrooms: {profileInfo.listing.bedrooms }</li>
+                    <li>Beds: {profileInfo.listing.beds }</li>
+                    <Link to="#house-rules">House Rules</Link>
+                </Col>
+                <Col md={5} className={s.midcontentColumnTwo}>
+                    <li>Check In Time: { profileInfo.listing.checkInTime }</li>
+                    <li>Check Out Time: { profileInfo.listing.checkOutTime }</li>
+                    <li>Property Type: {profileInfo.listing.propertyType }</li>
+                    <li>Room Type: {profileInfo.listing.type }</li>
+                </Col>
+              </Row>
+              <Row className={s.ammenitiesContainer}>
+                <Col md={2} className={s.midcontentLeftHeader}>
+                  Ammenities
+                </Col>
+                <Col md={5} className={s.midcontentColumnOne}>
 
-Mauris id egestas neque, in rhoncus nulla. Nunc lacinia, magna vitae condimentum vulputate, ante dui egestas est, vel cursus turpis dui eget metus. Sed imperdiet ultrices nibh, ut tincidunt felis rutrum hendrerit. Nulla pretium felis eu felis cursus tincidunt. Integer vitae dui vitae nulla commodo gravida eu vel lectus. Duis lorem felis, faucibus ac dignissim vitae, tincidunt suscipit turpis. Quisque nec lorem sit amet magna varius eleifend non eu ipsum. Suspendisse purus urna, euismod nec nisl at, mollis varius dui.
+                    <li>Accomodates: { profileInfo.listing.guestsIncluded }</li>
+                    <li>Bathrooms: { profileInfo.listing.bathrooms }</li>
+                    <li>Bedrooms: {profileInfo.listing.bedrooms }</li>
+                    <li>Beds: {profileInfo.listing.beds }</li>
+                    <Link to="#house-rules">House Rules</Link>
+                </Col>
+                <Col md={5} className={s.midcontentColumnTwo}>
+                    <li>Check In Time: { profileInfo.listing.checkInTime }</li>
+                    <li>Check Out Time: { profileInfo.listing.checkOutTime }</li>
+                    <li>Property Type: {profileInfo.listing.propertyType }</li>
+                    <li>Room Type: {profileInfo.listing.type }</li>
+                </Col>
+              </Row>
+              <Row className={s.pricesContainer}>
+                <Col md={2} className={s.midcontentLeftHeader}>
+                  Prices 
+                </Col>
+                <Col md={5} className={s.midcontentColumnOne}>
 
-Suspendisse mattis, dui at vehicula hendrerit, nibh purus blandit tellus, id cursus magna sapien auctor risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum dapibus enim elit, sed dignissim sapien dapibus non. Maecenas tincidunt eget tellus vitae euismod. In quis tellus nec enim ultrices porttitor. In auctor est urna, vel dignissim sem malesuada sit amet. Aliquam in nulla sed tellus dictum luctus. Morbi tincidunt erat ac urna suscipit, ut congue mauris consectetur. Integer tellus arcu, ultrices sit amet ipsum sed, auctor scelerisque massa.
-
-Mauris sollicitudin interdum leo et mattis. Nam blandit, sem quis efficitur tincidunt, erat mauris cursus mauris, ac facilisis sem arcu nec massa. Suspendisse viverra urna dolor, in egestas sapien imperdiet in. Praesent nibh turpis, ullamcorper non diam vitae, blandit tincidunt orci. Nunc at arcu sapien. Nullam scelerisque lacus quis eros ultricies, vitae ultrices sem sagittis. Nunc pellentesque sit amet nisl et eleifend. Duis eros nibh, aliquam sit amet orci quis, elementum fermentum lorem. Duis et nulla odio. Vivamus condimentum ut enim quis pretium. Donec dignissim arcu vitae lorem sagittis aliquet. Integer at velit enim. Donec eget consectetur nibh, id euismod dui. Nam in vehicula mi. Morbi id aliquam enim, sed condimentum velit.
-
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer luctus tristique fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sodales lectus nibh, convallis convallis dui efficitur eget. Proin lobortis odio ut nulla tempor rhoncus. Morbi gravida diam et ex maximus rutrum. Sed luctus erat sem, consectetur laoreet ex euismod at. Mauris sollicitudin porta arcu. In hac habitasse platea dictumst. Aliquam eu neque quis orci fermentum porta vel eu ligula. Ut congue ligula neque, id sollicitudin risus facilisis venenatis. Donec blandit leo vel elementum pellentesque.
-
-Duis mauris sem, porttitor eget ornare vel, sagittis sit amet tellus. Cras vel porttitor dui. Donec et ante at quam congue varius. Nunc tellus nisi, consequat eget interdum id, interdum sed neque. Nunc ultrices non erat id ultrices. Nulla blandit ex ut finibus accumsan. Morbi commodo turpis eu neque viverra cursus. Curabitur nisl justo, molestie dictum volutpat a, suscipit et orci. Donec et felis quis nunc tristique congue non vel dolor. Cras auctor urna quis magna dignissim cursus. Nam fringilla, nunc vel rutrum posuere, ligula leo volutpat ante, eu dapibus urna risus ac ante. Aenean nec suscipit nibh, a semper massa. Maecenas quis placerat justo.
-
-Morbi pretium non turpis nec volutpat. Vivamus ac bibendum erat. Aliquam erat volutpat. Cras volutpat felis at ante tristique convallis. Nulla et dui ultricies, hendrerit sapien vel, tristique nisl. Phasellus vitae venenatis sapien. Pellentesque id velit facilisis, mattis augue a, laoreet leo.
-
-Curabitur pellentesque arcu iaculis ante varius lobortis. Duis vel finibus risus. Duis turpis lorem, lacinia ac felis at, iaculis consectetur ligula. Duis molestie pellentesque dapibus. Aliquam sit amet elementum lacus. Vestibulum est ex, efficitur non pretium at, elementum sit amet orci. Praesent pretium pulvinar luctus. Cras porta odio a auctor facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus tempus risus sit amet molestie faucibus. Phasellus condimentum lobortis est eu auctor. Mauris a posuere lectus.
-
-Integer aliquam nunc sed rhoncus egestas. Donec lobortis nisl convallis, tempus mi sed, congue tortor. Nunc at urna varius, pellentesque arcu a, laoreet mauris. Morbi congue velit ac aliquet iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce a ultricies erat, nec porttitor dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-Proin a sem ipsum. Quisque sollicitudin purus ac magna posuere, nec placerat ex posuere. Nulla massa arcu, vestibulum et congue quis, hendrerit sit amet turpis. Maecenas nisl libero, mollis non facilisis venenatis, tempor ac nibh. Donec in dolor velit. Nullam eu eros interdum, porta sem eu, interdum orci. Praesent id purus mattis, volutpat felis a, cursus magna. Fusce placerat tellus odio, et ornare magna convallis a. Maecenas est felis, sodales eu tellus nec, sagittis mattis sem. Sed id ipsum at orci lobortis blandit. Suspendisse sed purus dapibus, faucibus elit nec, consectetur felis. Cras ultrices id libero vitae luctus. Quisque sapien dolor, sodales vitae ultrices eu, feugiat molestie tortor. In imperdiet at metus eget facilisis.
-
-Donec et maximus tellus, id congue enim. Phasellus porttitor condimentum egestas. Nulla vitae pharetra turpis. Cras eleifend risus at risus porttitor tincidunt. Duis diam ligula, aliquet ut posuere quis, iaculis eu massa. Curabitur varius a sem eget faucibus. Nullam non ante luctus, porta lorem ultricies, fringilla urna.
-
-Sed at est ultricies, vulputate dolor in, vestibulum velit. Nullam efficitur felis vel justo commodo, a luctus ante mattis. Suspendisse elit est, commodo non tempus id, faucibus et neque. Sed vel scelerisque elit. Morbi consequat sed libero sit amet elementum. Nulla pretium ligula sit amet sapien fringilla rutrum. Aliquam eu convallis sem. Vestibulum non orci eget magna finibus ornare eget et mauris. Fusce pharetra id eros a imperdiet. Donec interdum sem vitae lacinia interdum. Duis porttitor nibh placerat bibendum condimentum. Suspendisse mauris magna, tempor in imperdiet in, lacinia et eros.
-
-Donec magna neque, vulputate eleifend odio vel, posuere fermentum augue. Aenean nec mi semper, mollis arcu nec, bibendum tellus. Pellentesque porttitor eget leo at vehicula. Nulla iaculis id neque eu dapibus. Sed lacinia tortor vitae tortor varius feugiat. Morbi cursus rhoncus scelerisque. Integer volutpat, lectus non volutpat dignissim, massa justo volutpat odio, eget malesuada orci tortor ac enim. Nullam sed ex nec nisi cursus commodo. Proin mattis consequat vulputate. Sed pellentesque metus dolor, ac lobortis magna tempus et. Morbi eu tellus ut nisi consectetur rutrum nec eget velit. Donec est diam, gravida sit amet odio id, maximus aliquam justo. Integer mauris tortor, tristique non tortor egestas, scelerisque viverra sapien. Ut id augue dui. Duis varius ex non ullamcorper lobortis. 
- 
+                    <li>Accomodates: { profileInfo.listing.guestsIncluded }</li>
+                    <li>Bathrooms: { profileInfo.listing.bathrooms }</li>
+                    <li>Bedrooms: {profileInfo.listing.bedrooms }</li>
+                    <li>Beds: {profileInfo.listing.beds }</li>
+                    <Link to="#house-rules">House Rules</Link>
+                </Col>
+                <Col md={5} className={s.midcontentColumnTwo}>
+                    <li>Check In Time: { profileInfo.listing.checkInTime }</li>
+                    <li>Check Out Time: { profileInfo.listing.checkOutTime }</li>
+                    <li>Property Type: {profileInfo.listing.propertyType }</li>
+                    <li>Room Type: {profileInfo.listing.type }</li>
+                </Col>
               </Row>
             </Col>
             <Col className={s.stickyBoxContainer} xs={12} md={2}>

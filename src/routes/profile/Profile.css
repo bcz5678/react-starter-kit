@@ -68,4 +68,17 @@
 	padding: 20px;
 }
 
+.guaranteeContainer {
+	border-bottom: solid 1px rgb(219, 219, 219);
+	padding: 20px;
+}
 
+.contentDescription {
+	border-bottom: solid 1px rgb(219, 219, 219);
+	padding: 20px;
+}
+
+.midcontentColumnOne, .midcontentColumnTwo {
+	border-bottom: solid 1px rgb(219, 219, 219);
+	padding: 20px;
+}
