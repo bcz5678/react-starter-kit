@@ -13,6 +13,11 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Profile.css';
 import {ThemeProvider} from 'styled-components';
 import {Grid, Col, Row} from 'react-styled-flexboxgrid';
+import Link from '../../components/Link';
+import ToggleStar from 'material-ui/svg-icons/toggle/star.js';
+import Avatar from 'material-ui/Avatar';
+import ImageFlashOn from 'material-ui/svg-icons/image/flash-on.js';
+import amber600 from 'material-ui/styles/colors';
 
 const fullTheme = {
   flexboxgrid: {
@@ -21,22 +26,108 @@ const fullTheme = {
   }
 };
 
+
+const profileInfo = {
+  title: "THIS IS THE PROFILE TITLE",
+  host: {
+    id: 3056,
+    displayName: "Bob & Carol",
+    avatarImage: "3056_avatar_1.jpg",
+  },
+  location: {
+    city: "Durham",
+    state: "NC",
+    country: "United States",
+  },
+  reviews: {
+    number: 218,
+    avgRating: 4.7,
+  },
+  listing: {
+    type: "Private Room",
+    bedrooms: 1,
+    guestsIncluded: 2,
+    guestsMax: 5,
+    beds: 1,
+    pricePerNight: 75,
+    images: {
+      main: 'd7329e9a_original.jpg',
+
+    },
+    instantBookable: true,
+  }
+};
+
+const avatar = require('../../../public/avatars/' + profileInfo.host.avatarImage);
+const mainImage = require('../../../public/profileImages/' + profileInfo.listing.images.main);
+
 class Profile extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
   };
+
 
   render() {
     return (
       <ThemeProvider theme={fullTheme}>
         <Grid fluid={true}>
           <Row>
-            <img className={s.coverImage} style={{backgroundImage: 'url(http://localhost:3000/assets/public/profileImages/d7329e9a_original.jpg)' }} />
+            <img className={s.coverImage} style={{backgroundImage: 'url(' + mainImage + ')' }} />
           </Row>
           <Row className={s.contentContainer}>
-            <Col className={s.profileContainer} xs={12} md={4} mdOffset={3}>
+            <Col className={s.profileContainer} xs={12} md={6} mdOffset={2}>
+              <Row className={s.secondaryNavigation}>
+                <div role="navigation">
+                  <Link className={s.link} to="#Overview">Overview</Link>
+                  <Link className={s.link} to="#Reviews">Reviews</Link>
+                  <Link className={s.link} to="#TheHost">The Host</Link>
+                  <Link className={s.link} to="#Location">Location</Link>
+                </div>
+              </Row>
+              <Row className={s.profileHeaderContainer}>
+                <Col xs={12} md={10}>
+                  <Row>
+                    <h1>{ profileInfo.title }</h1>
+                  </Row>
+                  <Row>
+                    <h3>{ profileInfo.location.city }, { profileInfo.location.state }, { profileInfo.location.country }</h3>
+                    <span className={s.reviewNumberContainer}>
+                      <ToggleStar />                  
+                      <ToggleStar />
+                      <ToggleStar />
+                      <ToggleStar />
+                      <ToggleStar />
+                      <span className={s.reviewNumberText}>
+                        { profileInfo.reviews.number } Reviews
+                      </span>
+                    </span>
+                  </Row>
+                </Col>
+                <Col xs={12} md={2}>
+                  <div className={s.avatarImage} >
+                    <Avatar src={ avatar } size={65} />
+                  </div>
+                  <div className={s.avatarName} >
+                    { profileInfo.host.displayName }
+                  </div>
+                </Col>
+              </Row>
+              <Row className={s.profileSummaryContainer}>
+                  <Col className={s.summaryItem} md={3}>
+                  { profileInfo.listing.type }
+                  </Col>
+                  <Col className={s.summaryItem} md={3}>
+                    { profileInfo.listing.guestsIncluded == 1 ? profileInfo.listing.guestsIncluded + " Guest" : profileInfo.listing.guestsIncluded + " Guests" }
+                  </Col>
+                  <Col className={s.summaryItem} md={3}>
+                    { profileInfo.listing.bedrooms == 1 ? profileInfo.listing.bedrooms + " Bedroom" : profileInfo.listing.bedrooms + " Bedrooms" }
+                  </Col>
+                  <Col className={s.summaryItem} md={3}>
+                    { profileInfo.listing.beds == 1 ? profileInfo.listing.beds + " Bed" : profileInfo.listing.beds + " Beds" }
+                  </Col>
+              </Row>
+              <Row>
 
-              <h3>Profile start</h3>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at risus risus. Vestibulum laoreet risus diam, nec condimentum turpis consequat sed. Cras orci massa, luctus consequat ligula sit amet, tempor varius sapien. Ut enim nibh, porttitor nec porttitor eget, ornare ut ex. Sed ut cursus augue, id ultricies ligula. Praesent vulputate turpis a pharetra dictum. Nullam felis mauris, gravida quis ante sed, posuere laoreet ipsum. Integer ac lacinia lacus. Suspendisse enim felis, sodales sed tempus eu, egestas in elit. Sed at turpis ac nisl ultricies cursus ut ac lectus. Ut est nulla, finibus sit amet quam et, volutpat tempus nunc. Nunc imperdiet vehicula ligula vel dignissim. Morbi volutpat sapien et magna laoreet consectetur.
 
@@ -77,9 +168,16 @@ Donec et maximus tellus, id congue enim. Phasellus porttitor condimentum egestas
 Sed at est ultricies, vulputate dolor in, vestibulum velit. Nullam efficitur felis vel justo commodo, a luctus ante mattis. Suspendisse elit est, commodo non tempus id, faucibus et neque. Sed vel scelerisque elit. Morbi consequat sed libero sit amet elementum. Nulla pretium ligula sit amet sapien fringilla rutrum. Aliquam eu convallis sem. Vestibulum non orci eget magna finibus ornare eget et mauris. Fusce pharetra id eros a imperdiet. Donec interdum sem vitae lacinia interdum. Duis porttitor nibh placerat bibendum condimentum. Suspendisse mauris magna, tempor in imperdiet in, lacinia et eros.
 
 Donec magna neque, vulputate eleifend odio vel, posuere fermentum augue. Aenean nec mi semper, mollis arcu nec, bibendum tellus. Pellentesque porttitor eget leo at vehicula. Nulla iaculis id neque eu dapibus. Sed lacinia tortor vitae tortor varius feugiat. Morbi cursus rhoncus scelerisque. Integer volutpat, lectus non volutpat dignissim, massa justo volutpat odio, eget malesuada orci tortor ac enim. Nullam sed ex nec nisi cursus commodo. Proin mattis consequat vulputate. Sed pellentesque metus dolor, ac lobortis magna tempus et. Morbi eu tellus ut nisi consectetur rutrum nec eget velit. Donec est diam, gravida sit amet odio id, maximus aliquam justo. Integer mauris tortor, tristique non tortor egestas, scelerisque viverra sapien. Ut id augue dui. Duis varius ex non ullamcorper lobortis. 
+ 
+              </Row>
             </Col>
-            <Col className={s.stickyBox} xs={12} md={2}>
-              StickyBox Start
+            <Col className={s.stickyBoxContainer} xs={12} md={2}>
+              <Row className={s.stickyBoxHeader}>
+              { profileInfo.listing.instantBookable &&  <ImageFlashOn color='#ffb300' />}${ profileInfo.listing.pricePerNight } per night
+              </Row>
+              <Row className={s.stickyBoxContent}>
+                StickyBox Content
+              </Row>
             </Col>
           </Row>
         </Grid>

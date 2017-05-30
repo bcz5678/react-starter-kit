@@ -15,6 +15,9 @@
     height:700px;
 }
 
+.link {
+	margin-right: 32px;
+}
 
 .contentContainer{
 
@@ -24,7 +27,45 @@
 
 } 
 
-.stickyBox {
-position: sticky;
-top: 0px;
+.secondaryNavigation {
+	font-size: 19px;
+	font-weight: 300;
+	border-bottom: solid 1px rgb(219, 219, 219);
+	height: 50px;
+	margin-right: 20px;
 }
+
+.profileHeaderContainer {
+	border-bottom: solid 1px rgb(219, 219, 219);
+	margin-right: 20px;
+}
+
+.profileSummaryContainer {
+	border-bottom: solid 1px rgb(219, 219, 219);
+	margin-right: 20px;
+	color: #767676;
+}
+
+.summaryItem {
+	text-align: center;
+}
+
+.stickyBoxContainer {
+	margin-top: -50px;
+}
+
+.stickyBoxHeader {
+	height: 50px;
+	color: #FFF;
+	background-color: rgba(60,63,64,0.9);
+	padding: 13px 20px 5px 20px;
+}
+
+
+.stickyBoxContent {
+	min-height: 200px;
+	border: 1px solid rgb(219, 219, 219);
+	padding: 20px;
+}
+
+

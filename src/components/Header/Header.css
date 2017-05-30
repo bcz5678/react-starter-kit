@@ -19,20 +19,18 @@ border-bottom: 1px #DBDBDB solid;
 }
 
 .brandingContainer {
-
-  padding-top: 14px;
+padding-top: 14px;
 }
 
 .searchIcon {
 display: inline-block;
 padding-top: 9px;
-  border-left: 1px #DBDBDB solid;
+border-left: 1px #DBDBDB solid;
 }
 
 .searchInput {
 display: inline-block;
- padding-top: 9px;
-
+padding-top: 9px;
 }
 
 
