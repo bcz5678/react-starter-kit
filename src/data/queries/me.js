@@ -11,6 +11,7 @@ import UserType from '../types/UserType';
 import { resolver } from 'graphql-sequelize';
 import User from '../models/User.js';
 
+
 const me = {
   type: UserType,
   resolve: resolver(User),

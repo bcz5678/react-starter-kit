@@ -17,7 +17,18 @@ export default {
 
   path: '/room',
 
-  action() {
+  async action({ fetch }) {
+    const resp = await fetch('/graphql', {
+      body: JSON.stringify({
+        query: '{room{id,host,location,listing,reviews}}',
+      }),
+    });
+
+    const { data } = await resp.json();
+
+    console.log();
+
+    if (!data || !data.room) throw new Error('Failed to load room.');
     return {
       title,
       component: <Layout><Room title={title} /></Layout>,
