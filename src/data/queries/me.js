@@ -8,15 +8,12 @@
  */
 
 import UserType from '../types/UserType';
+import { resolver } from 'graphql-sequelize';
+import User from '../models/User.js';
 
 const me = {
   type: UserType,
-  resolve({ request }) {
-    return request.user && {
-      id: request.user.id,
-      email: request.user.email,
-    };
-  },
+  resolve: resolver(User),
 };
 
 export default me;

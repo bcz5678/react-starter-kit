@@ -26,7 +26,7 @@ module.exports = {
   },
 
   // Database
-  databaseUrl: process.env.DATABASE_URL || 'sqlite:database.sqlite',
+  databaseUrl: process.env.DATABASE_URL || 'postgres://airbnb:airbnb5678@localhost:5432/airbnb',
 
   // Web analytics
   analytics: {

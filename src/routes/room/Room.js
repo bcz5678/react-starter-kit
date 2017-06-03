@@ -10,7 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Profile.css';
+import s from './Room.css';
 import {ThemeProvider} from 'styled-components';
 import {Grid, Col, Row} from 'react-styled-flexboxgrid';
 import Link from '../../components/Link';
@@ -27,7 +27,7 @@ const fullTheme = {
 };
 
 
-const profileInfo = {
+const roomInfo = {
   title: "THIS IS THE PROFILE TITLE",
   host: {
     id: 3056,
@@ -69,12 +69,12 @@ const profileInfo = {
   }
 };
 
-const avatar = require('../../../public/avatars/' + profileInfo.host.avatarImage);
-const mainImage = require('../../../public/profileImages/' + profileInfo.listing.images.main);
+const avatar = require('../../../public/avatars/' + roomInfo.host.avatarImage);
+const mainImage = require('../../../public/roomImages/' + roomInfo.listing.images.main);
 const piggyBank = require('../../../public/piggy-bank.png');
 
 
-class Profile extends React.Component {
+class Room extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
   };
@@ -88,7 +88,7 @@ class Profile extends React.Component {
             <img className={s.coverImage} style={{backgroundImage: 'url(' + mainImage + ')' }} />
           </Row>
           <Row className={s.contentContainer}>
-            <Col className={s.profileContainer} xs={12} md={6} mdOffset={2}>
+            <Col className={s.roomContainer} xs={12} md={6} mdOffset={2}>
               <Row className={s.secondaryNavigation}>
                 <div role="navigation">
                   <Link className={s.link} to="#Overview">Overview</Link>
@@ -97,13 +97,13 @@ class Profile extends React.Component {
                   <Link className={s.link} to="#Location">Location</Link>
                 </div>
               </Row>
-              <Row className={s.profileHeaderContainer}>
+              <Row className={s.roomHeaderContainer}>
                 <Col xs={12} md={10}>
                   <Row>
-                    <h1>{ profileInfo.title }</h1>
+                    <h1>{ roomInfo.title }</h1>
                   </Row>
                   <Row>
-                    <h3>{ profileInfo.location.city }, { profileInfo.location.state }, { profileInfo.location.country }</h3>
+                    <h3>{ roomInfo.location.city }, { roomInfo.location.state }, { roomInfo.location.country }</h3>
                     <span className={s.reviewNumberContainer}>
                       <ToggleStar />                  
                       <ToggleStar />
@@ -111,7 +111,7 @@ class Profile extends React.Component {
                       <ToggleStar />
                       <ToggleStar />
                       <span className={s.reviewNumberText}>
-                        { profileInfo.reviews.number } Reviews
+                        { roomInfo.reviews.number } Reviews
                       </span>
                     </span>
                   </Row>
@@ -121,22 +121,22 @@ class Profile extends React.Component {
                     <Avatar src={ avatar } size={65} />
                   </div>
                   <div className={s.avatarName} >
-                    { profileInfo.host.displayName }
+                    { roomInfo.host.displayName }
                   </div>
                 </Col>
               </Row>
-              <Row className={s.profileSummaryContainer}>
+              <Row className={s.roomSummaryContainer}>
                   <Col className={s.summaryItem} md={3}>
-                  { profileInfo.listing.type }
+                  { roomInfo.listing.type }
                   </Col>
                   <Col className={s.summaryItem} md={3}>
-                    { profileInfo.listing.guestsIncluded == 1 ? profileInfo.listing.guestsIncluded + " Guest" : profileInfo.listing.guestsIncluded + " Guests" }
+                    { roomInfo.listing.guestsIncluded == 1 ? roomInfo.listing.guestsIncluded + " Guest" : roomInfo.listing.guestsIncluded + " Guests" }
                   </Col>
                   <Col className={s.summaryItem} md={3}>
-                    { profileInfo.listing.bedrooms == 1 ? profileInfo.listing.bedrooms + " Bedroom" : profileInfo.listing.bedrooms + " Bedrooms" }
+                    { roomInfo.listing.bedrooms == 1 ? roomInfo.listing.bedrooms + " Bedroom" : roomInfo.listing.bedrooms + " Bedrooms" }
                   </Col>
                   <Col className={s.summaryItem} md={3}>
-                    { profileInfo.listing.beds == 1 ? profileInfo.listing.beds + " Bed" : profileInfo.listing.beds + " Beds" }
+                    { roomInfo.listing.beds == 1 ? roomInfo.listing.beds + " Bed" : roomInfo.listing.beds + " Beds" }
                   </Col>
               </Row>
               <Row className={s.guaranteeContainer}>
@@ -152,36 +152,36 @@ class Profile extends React.Component {
               </Row>
               <Row className={s.contentDescription}>
                   <h2>About This Listing </h2>
-                  {profileInfo.listing.description.about}
+                  {roomInfo.listing.description.about}
                    
-                  { profileInfo.listing.description.theSpace ? 
+                  { roomInfo.listing.description.theSpace ? 
                     <div>
                       <h3>The Space</h3>
-                      <p>{profileInfo.listing.description.theSpace}</p>
+                      <p>{roomInfo.listing.description.theSpace}</p>
                     </div> 
 
                     : '' }
 
-                  { profileInfo.listing.description.guestAccess ? 
+                  { roomInfo.listing.description.guestAccess ? 
                     <div>
                       <h3>Guest Access</h3>
-                      <p>{profileInfo.listing.description.guestAccess}</p>
+                      <p>{roomInfo.listing.description.guestAccess}</p>
                     </div> 
 
                     : '' }
 
-                    { profileInfo.listing.description.interactionWithGuests ? 
+                    { roomInfo.listing.description.interactionWithGuests ? 
                     <div>
                       <h3>Interaction with Guests</h3>
-                      <p>{profileInfo.listing.description.interactionWithGuests}</p>
+                      <p>{roomInfo.listing.description.interactionWithGuests}</p>
                     </div> 
 
                     : '' }
 
-                    { profileInfo.listing.description.other ? 
+                    { roomInfo.listing.description.other ? 
                     <div>
                       <h3>Other things to note</h3>
-                      <p>{profileInfo.listing.description.other}</p>
+                      <p>{roomInfo.listing.description.other}</p>
                     </div> 
 
                     : '' }
@@ -194,17 +194,17 @@ class Profile extends React.Component {
                 </Col>
                 <Col md={5} className={s.midcontentColumnOne}>
 
-                    <li>Accomodates: { profileInfo.listing.guestsIncluded }</li>
-                    <li>Bathrooms: { profileInfo.listing.bathrooms }</li>
-                    <li>Bedrooms: {profileInfo.listing.bedrooms }</li>
-                    <li>Beds: {profileInfo.listing.beds }</li>
+                    <li>Accomodates: { roomInfo.listing.guestsIncluded }</li>
+                    <li>Bathrooms: { roomInfo.listing.bathrooms }</li>
+                    <li>Bedrooms: {roomInfo.listing.bedrooms }</li>
+                    <li>Beds: {roomInfo.listing.beds }</li>
                     <Link to="#house-rules">House Rules</Link>
                 </Col>
                 <Col md={5} className={s.midcontentColumnTwo}>
-                    <li>Check In Time: { profileInfo.listing.checkInTime }</li>
-                    <li>Check Out Time: { profileInfo.listing.checkOutTime }</li>
-                    <li>Property Type: {profileInfo.listing.propertyType }</li>
-                    <li>Room Type: {profileInfo.listing.type }</li>
+                    <li>Check In Time: { roomInfo.listing.checkInTime }</li>
+                    <li>Check Out Time: { roomInfo.listing.checkOutTime }</li>
+                    <li>Property Type: {roomInfo.listing.propertyType }</li>
+                    <li>Room Type: {roomInfo.listing.type }</li>
                 </Col>
               </Row>
               <Row className={s.ammenitiesContainer}>
@@ -213,17 +213,17 @@ class Profile extends React.Component {
                 </Col>
                 <Col md={5} className={s.midcontentColumnOne}>
 
-                    <li>Accomodates: { profileInfo.listing.guestsIncluded }</li>
-                    <li>Bathrooms: { profileInfo.listing.bathrooms }</li>
-                    <li>Bedrooms: {profileInfo.listing.bedrooms }</li>
-                    <li>Beds: {profileInfo.listing.beds }</li>
+                    <li>Accomodates: { roomInfo.listing.guestsIncluded }</li>
+                    <li>Bathrooms: { roomInfo.listing.bathrooms }</li>
+                    <li>Bedrooms: {roomInfo.listing.bedrooms }</li>
+                    <li>Beds: {roomInfo.listing.beds }</li>
                     <Link to="#house-rules">House Rules</Link>
                 </Col>
                 <Col md={5} className={s.midcontentColumnTwo}>
-                    <li>Check In Time: { profileInfo.listing.checkInTime }</li>
-                    <li>Check Out Time: { profileInfo.listing.checkOutTime }</li>
-                    <li>Property Type: {profileInfo.listing.propertyType }</li>
-                    <li>Room Type: {profileInfo.listing.type }</li>
+                    <li>Check In Time: { roomInfo.listing.checkInTime }</li>
+                    <li>Check Out Time: { roomInfo.listing.checkOutTime }</li>
+                    <li>Property Type: {roomInfo.listing.propertyType }</li>
+                    <li>Room Type: {roomInfo.listing.type }</li>
                 </Col>
               </Row>
               <Row className={s.pricesContainer}>
@@ -232,23 +232,23 @@ class Profile extends React.Component {
                 </Col>
                 <Col md={5} className={s.midcontentColumnOne}>
 
-                    <li>Accomodates: { profileInfo.listing.guestsIncluded }</li>
-                    <li>Bathrooms: { profileInfo.listing.bathrooms }</li>
-                    <li>Bedrooms: {profileInfo.listing.bedrooms }</li>
-                    <li>Beds: {profileInfo.listing.beds }</li>
+                    <li>Accomodates: { roomInfo.listing.guestsIncluded }</li>
+                    <li>Bathrooms: { roomInfo.listing.bathrooms }</li>
+                    <li>Bedrooms: {roomInfo.listing.bedrooms }</li>
+                    <li>Beds: {roomInfo.listing.beds }</li>
                     <Link to="#house-rules">House Rules</Link>
                 </Col>
                 <Col md={5} className={s.midcontentColumnTwo}>
-                    <li>Check In Time: { profileInfo.listing.checkInTime }</li>
-                    <li>Check Out Time: { profileInfo.listing.checkOutTime }</li>
-                    <li>Property Type: {profileInfo.listing.propertyType }</li>
-                    <li>Room Type: {profileInfo.listing.type }</li>
+                    <li>Check In Time: { roomInfo.listing.checkInTime }</li>
+                    <li>Check Out Time: { roomInfo.listing.checkOutTime }</li>
+                    <li>Property Type: {roomInfo.listing.propertyType }</li>
+                    <li>Room Type: {roomInfo.listing.type }</li>
                 </Col>
               </Row>
             </Col>
             <Col className={s.stickyBoxContainer} xs={12} md={2}>
               <Row className={s.stickyBoxHeader}>
-              { profileInfo.listing.instantBookable &&  <ImageFlashOn color='#ffb300' />}${ profileInfo.listing.pricePerNight } per night
+              { roomInfo.listing.instantBookable &&  <ImageFlashOn color='#ffb300' />}${ roomInfo.listing.pricePerNight } per night
               </Row>
               <Row className={s.stickyBoxContent}>
                 StickyBox Content
@@ -261,4 +261,4 @@ class Profile extends React.Component {
   }
 }
 
-export default withStyles(s)(Profile);
+export default withStyles(s)(Room);

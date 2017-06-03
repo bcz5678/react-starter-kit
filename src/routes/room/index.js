@@ -9,18 +9,18 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Profile from './Profile';
+import Room from './Room';
 
-const title = 'Profile';
+const title = 'Room';
 
 export default {
 
-  path: '/profile',
+  path: '/room',
 
   action() {
     return {
       title,
-      component: <Layout><Profile title={title} /></Layout>,
+      component: <Layout><Room title={title} /></Layout>,
     };
   },
 

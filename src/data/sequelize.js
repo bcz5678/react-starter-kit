@@ -16,4 +16,14 @@ const sequelize = new Sequelize(config.databaseUrl, {
   },
 });
 
+sequelize
+	.authenticate()
+	.then(function(err) { 
+		console.log("Sequelize connected successfully");
+	})
+	.catch(function(err) {
+		console.log("Sequelize did not connect successfully");
+	});
+
+
 export default sequelize;

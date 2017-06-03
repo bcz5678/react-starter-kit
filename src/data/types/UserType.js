@@ -12,6 +12,7 @@ import {
   GraphQLID as ID,
   GraphQLString as StringType,
   GraphQLNonNull as NonNull,
+  GraphQLBoolean as BooleanType,
 } from 'graphql';
 
 const UserType = new ObjectType({
@@ -19,6 +20,7 @@ const UserType = new ObjectType({
   fields: {
     id: { type: new NonNull(ID) },
     email: { type: StringType },
+    emailConfirmed: { type: new NonNull(BooleanType)}
   },
 });
 
