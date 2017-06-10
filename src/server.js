@@ -28,6 +28,7 @@ import models from './data/models';
 import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
+import graphQLBookshelf from 'graphql-bookshelfjs';
 
 const app = express();
 
@@ -91,6 +92,9 @@ app.use('/graphql', expressGraphQL(req => ({
   graphiql: __DEV__,
   rootValue: { request: req },
   pretty: __DEV__,
+  context: {
+    loaders: graphQLBookshelf.getLoaders();
+  }
 })));
 
 //

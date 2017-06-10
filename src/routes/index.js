@@ -24,6 +24,7 @@ export default {
     require('./privacy').default,
     require('./admin').default,
     require('./room').default,
+    //require('./room/:id').default,
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     require('./notFound').default,

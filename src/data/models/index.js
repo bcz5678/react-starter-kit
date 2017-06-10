@@ -35,9 +35,10 @@ User.hasOne(UserProfile, {
   onDelete: 'cascade',
 });
 
+
 function sync(...args) {
   return sequelize.sync(...args);
 }
 
 export default { sync };
-export { User, UserLogin, UserClaim, UserProfile, Room };
+export { User, UserLogin, UserClaim, UserProfile, Room  };

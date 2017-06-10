@@ -27,7 +27,14 @@ module.exports = {
 
   // Database
   databaseUrl: process.env.DATABASE_URL || 'postgres://airbnb:airbnb5678@localhost:5432/airbnb',
-
+  db: {
+    host : 'localhost',
+    client: 'pg',
+    database: 'airbnb',
+    user: 'airbnb',
+    password: 'airbnb5678',
+  },
+  
   // Web analytics
   analytics: {
     // https://analytics.google.com/

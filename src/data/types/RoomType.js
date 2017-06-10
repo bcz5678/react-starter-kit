@@ -7,6 +7,9 @@ import {
   GraphQLInt as IntegerType,
 } from 'graphql';
 
+
+import { GraphQLJSON as JSONType } from 'graphql-type-json';
+
 const RoomType = new ObjectType({
   name: 'Room',
   fields: {

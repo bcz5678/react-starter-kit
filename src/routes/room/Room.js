@@ -27,10 +27,13 @@ const fullTheme = {
 };
 
 
+
+
+
 const roomInfo = {
   title: "THIS IS THE PROFILE TITLE",
   host: {
-    id: 3056,
+    id: 3456,
     displayName: "Bob & Carol",
     avatarImage: "3056_avatar_1.jpg",
   },
@@ -77,7 +80,15 @@ const piggyBank = require('../../../public/piggy-bank.png');
 class Room extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    //room: PropTypes.objectOf(PropTypes.shape({
+      // id: PropTypes.number.isRequired,
+      // host: PropTypes.number.isRequired,
+      // location: PropTypes.object.isRequired,
+      // listing: PropTypes.object.isRequired,
+      // reviews: PropTypes.object.isRequired
+    //  })).isRequired
   };
+
 
 
   render() {
@@ -122,6 +133,8 @@ class Room extends React.Component {
                   </div>
                   <div className={s.avatarName} >
                     { roomInfo.host.displayName }
+                    {typeof this.props.location}
+
                   </div>
                 </Col>
               </Row>

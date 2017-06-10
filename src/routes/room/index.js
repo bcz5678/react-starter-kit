@@ -13,11 +13,35 @@ import Room from './Room';
 
 const title = 'Room';
 
-export default {
-
-  path: '/room',
+export default 
+  {path: '/room',
 
   async action({ fetch }) {
+    const resp = await fetch('/graphql', {
+      body: JSON.stringify({
+        query: '{room(id: 1){id,host,location,listing,reviews}}',
+      }),
+    });
+
+    const { data } = await resp.json();
+
+    console.log(data.room);
+
+
+    if (!data || !data.room) throw new Error('Failed to load room.');
+
+
+    return {
+      title,
+      component: <Layout><Room title={title} room={data.room} /></Layout>,
+    };
+  }, 
+};
+
+/*
+  {path: '/room/:id',
+
+  async action({ fetch, params }) {
     const resp = await fetch('/graphql', {
       body: JSON.stringify({
         query: '{room{id,host,location,listing,reviews}}',
@@ -26,13 +50,14 @@ export default {
 
     const { data } = await resp.json();
 
-    console.log();
+    //console.log(${params.id}); 
+
 
     if (!data || !data.room) throw new Error('Failed to load room.');
     return {
       title,
       component: <Layout><Room title={title} /></Layout>,
     };
-  },
-
-};
+	}
+  }
+*/
