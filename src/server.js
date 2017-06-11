@@ -93,7 +93,7 @@ app.use('/graphql', expressGraphQL(req => ({
   rootValue: { request: req },
   pretty: __DEV__,
   context: {
-    loaders: graphQLBookshelf.getLoaders();
+    loaders: graphQLBookshelf.getLoaders()
   }
 })));
 

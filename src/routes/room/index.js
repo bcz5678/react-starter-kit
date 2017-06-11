@@ -19,17 +19,15 @@ export default
   async action({ fetch }) {
     const resp = await fetch('/graphql', {
       body: JSON.stringify({
-        query: '{room(id: 1){id,host,location,listing,reviews}}',
+        query: '{room(id: 1){id,host,headline,address1,address1,address2,city,state,zipcode,country,reviewsNumber,reviewsAverage,roomType,propertyType,checkInStart,checkInEnd,checkOutStart,checkOutEnd,bedrooms,guestsIncluded,guestsMax,beds,bathrooms,priceWeeknight,priceWeekend,priceWeek,priceSpecial,isInstantBookable,images,description}}',
       }),
     });
 
     const { data } = await resp.json();
 
-    console.log(data.room);
-
+    console.log(data.room.description.about);
 
     if (!data || !data.room) throw new Error('Failed to load room.');
-
 
     return {
       title,

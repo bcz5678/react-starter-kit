@@ -111,10 +111,10 @@ class Room extends React.Component {
               <Row className={s.roomHeaderContainer}>
                 <Col xs={12} md={10}>
                   <Row>
-                    <h1>{ roomInfo.title }</h1>
+                    <h1>{ this.props.room.headline }</h1>
                   </Row>
                   <Row>
-                    <h3>{ roomInfo.location.city }, { roomInfo.location.state }, { roomInfo.location.country }</h3>
+                    <h3>{ this.props.room.city }, { this.props.room.state }, { this.props.room.country }</h3>
                     <span className={s.reviewNumberContainer}>
                       <ToggleStar />                  
                       <ToggleStar />
@@ -122,7 +122,7 @@ class Room extends React.Component {
                       <ToggleStar />
                       <ToggleStar />
                       <span className={s.reviewNumberText}>
-                        { roomInfo.reviews.number } Reviews
+                        { this.props.room.reviewsNumber } Reviews
                       </span>
                     </span>
                   </Row>
@@ -132,24 +132,24 @@ class Room extends React.Component {
                     <Avatar src={ avatar } size={65} />
                   </div>
                   <div className={s.avatarName} >
-                    { roomInfo.host.displayName }
-                    {typeof this.props.location}
+                    { this.props.room.host }
+
 
                   </div>
                 </Col>
               </Row>
               <Row className={s.roomSummaryContainer}>
                   <Col className={s.summaryItem} md={3}>
-                  { roomInfo.listing.type }
+                  { this.props.room.roomType }
                   </Col>
                   <Col className={s.summaryItem} md={3}>
-                    { roomInfo.listing.guestsIncluded == 1 ? roomInfo.listing.guestsIncluded + " Guest" : roomInfo.listing.guestsIncluded + " Guests" }
+                    { this.props.room.guestsIncluded == 1 ? this.props.room.guestsIncluded + " Guest" : this.props.room.guestsIncluded + " Guests" }
                   </Col>
                   <Col className={s.summaryItem} md={3}>
-                    { roomInfo.listing.bedrooms == 1 ? roomInfo.listing.bedrooms + " Bedroom" : roomInfo.listing.bedrooms + " Bedrooms" }
+                    { this.props.room.bedrooms == 1 ? this.props.room.bedrooms + " Bedroom" : this.props.room.bedrooms + " Bedrooms" }
                   </Col>
                   <Col className={s.summaryItem} md={3}>
-                    { roomInfo.listing.beds == 1 ? roomInfo.listing.beds + " Bed" : roomInfo.listing.beds + " Beds" }
+                    { this.props.room.beds == 1 ? this.props.room.beds + " Bed" : this.props.room.beds + " Beds" }
                   </Col>
               </Row>
               <Row className={s.guaranteeContainer}>
@@ -165,36 +165,36 @@ class Room extends React.Component {
               </Row>
               <Row className={s.contentDescription}>
                   <h2>About This Listing </h2>
-                  {roomInfo.listing.description.about}
+                  {this.props.room.description.about}
                    
-                  { roomInfo.listing.description.theSpace ? 
+                  { this.props.room.description.theSpace ? 
                     <div>
                       <h3>The Space</h3>
-                      <p>{roomInfo.listing.description.theSpace}</p>
+                      <p>{this.props.room.description.theSpace}</p>
                     </div> 
 
                     : '' }
 
-                  { roomInfo.listing.description.guestAccess ? 
+                  { this.props.room.description.guestAccess ? 
                     <div>
                       <h3>Guest Access</h3>
-                      <p>{roomInfo.listing.description.guestAccess}</p>
+                      <p>{this.props.room.description.guestAccess}</p>
                     </div> 
 
                     : '' }
 
-                    { roomInfo.listing.description.interactionWithGuests ? 
+                    { this.props.room.description.interactionWithGuests ? 
                     <div>
                       <h3>Interaction with Guests</h3>
-                      <p>{roomInfo.listing.description.interactionWithGuests}</p>
+                      <p>{this.props.room.description.interactionWithGuests}</p>
                     </div> 
 
                     : '' }
 
-                    { roomInfo.listing.description.other ? 
+                    { this.props.room.description.other ? 
                     <div>
                       <h3>Other things to note</h3>
-                      <p>{roomInfo.listing.description.other}</p>
+                      <p>{this.props.room.description.other}</p>
                     </div> 
 
                     : '' }
@@ -207,17 +207,17 @@ class Room extends React.Component {
                 </Col>
                 <Col md={5} className={s.midcontentColumnOne}>
 
-                    <li>Accomodates: { roomInfo.listing.guestsIncluded }</li>
-                    <li>Bathrooms: { roomInfo.listing.bathrooms }</li>
-                    <li>Bedrooms: {roomInfo.listing.bedrooms }</li>
-                    <li>Beds: {roomInfo.listing.beds }</li>
+                    <li>Accomodates: { this.props.room.guestsIncluded }</li>
+                    <li>Bathrooms: { this.props.room.bathrooms }</li>
+                    <li>Bedrooms: {this.props.room.bedrooms }</li>
+                    <li>Beds: {this.props.room.beds }</li>
                     <Link to="#house-rules">House Rules</Link>
                 </Col>
                 <Col md={5} className={s.midcontentColumnTwo}>
-                    <li>Check In Time: { roomInfo.listing.checkInTime }</li>
-                    <li>Check Out Time: { roomInfo.listing.checkOutTime }</li>
-                    <li>Property Type: {roomInfo.listing.propertyType }</li>
-                    <li>Room Type: {roomInfo.listing.type }</li>
+                    <li>Check In Time: { this.props.room.checkInStart }- { this.props.room.checkInEnd }</li>
+                    <li>Check Out Time: { this.props.room.checkOutStart }- { this.props.room.checkOutEnd }</li>
+                    <li>Property Type: {this.props.room.propertyType }</li>
+                    <li>Room Type: {this.props.room.roomType }</li>
                 </Col>
               </Row>
               <Row className={s.ammenitiesContainer}>
@@ -226,17 +226,9 @@ class Room extends React.Component {
                 </Col>
                 <Col md={5} className={s.midcontentColumnOne}>
 
-                    <li>Accomodates: { roomInfo.listing.guestsIncluded }</li>
-                    <li>Bathrooms: { roomInfo.listing.bathrooms }</li>
-                    <li>Bedrooms: {roomInfo.listing.bedrooms }</li>
-                    <li>Beds: {roomInfo.listing.beds }</li>
-                    <Link to="#house-rules">House Rules</Link>
                 </Col>
                 <Col md={5} className={s.midcontentColumnTwo}>
-                    <li>Check In Time: { roomInfo.listing.checkInTime }</li>
-                    <li>Check Out Time: { roomInfo.listing.checkOutTime }</li>
-                    <li>Property Type: {roomInfo.listing.propertyType }</li>
-                    <li>Room Type: {roomInfo.listing.type }</li>
+                   
                 </Col>
               </Row>
               <Row className={s.pricesContainer}>
@@ -245,23 +237,16 @@ class Room extends React.Component {
                 </Col>
                 <Col md={5} className={s.midcontentColumnOne}>
 
-                    <li>Accomodates: { roomInfo.listing.guestsIncluded }</li>
-                    <li>Bathrooms: { roomInfo.listing.bathrooms }</li>
-                    <li>Bedrooms: {roomInfo.listing.bedrooms }</li>
-                    <li>Beds: {roomInfo.listing.beds }</li>
-                    <Link to="#house-rules">House Rules</Link>
+                    
                 </Col>
                 <Col md={5} className={s.midcontentColumnTwo}>
-                    <li>Check In Time: { roomInfo.listing.checkInTime }</li>
-                    <li>Check Out Time: { roomInfo.listing.checkOutTime }</li>
-                    <li>Property Type: {roomInfo.listing.propertyType }</li>
-                    <li>Room Type: {roomInfo.listing.type }</li>
+                   
                 </Col>
               </Row>
             </Col>
             <Col className={s.stickyBoxContainer} xs={12} md={2}>
               <Row className={s.stickyBoxHeader}>
-              { roomInfo.listing.instantBookable &&  <ImageFlashOn color='#ffb300' />}${ roomInfo.listing.pricePerNight } per night
+              { this.props.room.isInstantBookable &&  <ImageFlashOn color='#ffb300' />}${ this.props.room.priceWeeknight } per night
               </Row>
               <Row className={s.stickyBoxContent}>
                 StickyBox Content
