@@ -20,6 +20,11 @@
   max-width: var(--max-content-width);
 }
 
+.linkAll {
+  color: #484848;
+  text-decoration: none;
+}
+
 .homeHead {
   color: #FF5a5F;
   font-size: 4em;
@@ -36,3 +41,11 @@
   padding-right:20px;
 }
 
+.homeSectionHeader {
+  margin-top: 30px;
+  color: #484848;
+}
+
+.searchButton {
+  color: #FFFFFF;
+}

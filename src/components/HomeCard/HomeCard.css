@@ -14,4 +14,16 @@
 
 .container {
   max-width: var(--max-content-width);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid red;
+}
+
+.link {
+	text-decoration: none;
+	color: #484848;
+}
+
+.homeCardTitle {
+	color: #484848;
 }

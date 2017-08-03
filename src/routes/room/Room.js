@@ -27,9 +27,6 @@ const fullTheme = {
 };
 
 
-
-
-
 const roomInfo = {
   title: "THIS IS THE PROFILE TITLE",
   host: {
@@ -95,14 +92,12 @@ class Room extends React.Component {
 
   render() {
 
-    var mainImage = "/dynamic/roomImages/" + this.props.room.host + '/' + this.props.room.mainImage;
-
     return (
 
       <ThemeProvider theme={fullTheme}>
         <Grid fluid={true}>
           <Row>
-            <img className={s.coverImage} src={ mainImage } />
+            <img className={s.coverImage} src={"/dynamic/roomImages/" + this.props.host + "/" + this.props.room.mainImage} />
           </Row>
           <Row className={s.contentContainer}>
             <Col className={s.roomContainer} xs={12} md={6} mdOffset={2}>

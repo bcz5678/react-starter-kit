@@ -16,6 +16,7 @@ import {Grid, Col, Row} from 'react-styled-flexboxgrid';
 import Link from '../../components/Link';
 import HomeCard from '../../components/HomeCard';
 import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
 
 class Home extends React.Component {
   
@@ -47,25 +48,40 @@ class Home extends React.Component {
                 floatingLabelText="Guests"
                 floatingLabelFixed={true}
               /> 
+
+              <FlatButton
+                  backgroundColor="#FF5A5F"
+                  hoverColor="#FF5A5F"
+                  label="Search"
+                  style="color:#fff;"
+              />
+            </Row>
+            <Row className={s.homeSectionHeader}>
+              <Col xs={12} md={6}>
+                Homes
+              </Col>
+              <Col xs={12} md={1} mdOffset={5}>
+                <Link className={s.linkAll} to="/rooms" >See All > </Link>
+              </Col>
             </Row>
             <Row className={s.homeCardGrid}>
-              <Col lg={4}>
-                <HomeCard imgUrl="test1.jpg" title="Test #1" price="85" reviewsNumber="16"/>
+              <Col xs={12} sm={6} md={4}>
+                <HomeCard id="1" imgUrl="test1.jpg" title="Test #1" price="85" houseType="Entire Apartment" beds="2" reviewsNumber="16"/>
               </Col>
-              <Col lg={4}>
-                <HomeCard imgUrl="test2.jpg" title="Test #2" price="115" reviewsNumber="65"/>
+              <Col xs={12} sm={6} md={4}>
+                <HomeCard id="2" imgUrl="test2.jpg" title="Test #2" price="115" houseType="Entire Apartment" beds="2" reviewsNumber="65"/>
               </Col>
-              <Col lg={4}>
-                <HomeCard imgUrl="test3.jpg" title="Test #3" price="79" reviewsNumber="35"/>
+              <Col xs={12} sm={6} md={4}>
+                <HomeCard id="3" imgUrl="test3.jpg" title="Test #3" price="79" houseType="Entire Apartment" beds="2" reviewsNumber="35"/>
               </Col>
-              <Col lg={4}>
-                <HomeCard imgUrl="test4.jpg" title="Test #4" price="45" reviewsNumber="13"/>
+              <Col xs={12} sm={6} md={4}>
+                <HomeCard id="4" imgUrl="test4.jpg" title="Test #4" price="45" houseType="Entire Apartment" beds="2" reviewsNumber="13"/>
               </Col>
-              <Col lg={4}>
-                <HomeCard imgUrl="test5.jpg" title="Test #5" price="67" reviewsNumber="73"/>
+              <Col xs={12} sm={6} md={4}>
+                <HomeCard id="5" imgUrl="test5.jpg" title="Test #5" price="67" houseType="Entire Apartment" beds="2" reviewsNumber="73"/>
               </Col>
-              <Col lg={4}>
-                <HomeCard imgUrl="test6.jpg" title="Test #6" price="98" reviewsNumber="25"/>
+              <Col xs={12} sm={6} md={4}>
+                <HomeCard id="6" imgUrl="test6.jpg" title="Test #6" price="98" houseType="Entire Apartment" beds="2" reviewsNumber="25"/>
               </Col>
             </Row>
           </Grid>
