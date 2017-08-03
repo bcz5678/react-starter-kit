@@ -72,10 +72,12 @@ const roomInfo = {
   }
 };
 
-const avatar = require('../../../public/avatars/' + roomInfo.host.avatarImage);
-const mainImage = require('../../../public/roomImages/' + roomInfo.listing.images.main);
-const piggyBank = require('../../../public/piggy-bank.png');
+const avatar = require('../../media/avatars/' + roomInfo.host.avatarImage);
+//const mainImage = require('../../../public/roomImages/' + roomInfo.listing.images.main);
+const piggyBank = require('../../media/piggy-bank.png');
 
+const pathToRoomImages = require.context('../../media/roomImages/',true);
+ 
 
 class Room extends React.Component {
   static propTypes = {
@@ -92,11 +94,15 @@ class Room extends React.Component {
 
 
   render() {
+
+    var mainImage = "/dynamic/roomImages/" + this.props.room.host + '/' + this.props.room.mainImage;
+
     return (
+
       <ThemeProvider theme={fullTheme}>
         <Grid fluid={true}>
           <Row>
-            <img className={s.coverImage} style={{backgroundImage: 'url(' + mainImage + ')' }} />
+            <img className={s.coverImage} src={ mainImage } />
           </Row>
           <Row className={s.contentContainer}>
             <Col className={s.roomContainer} xs={12} md={6} mdOffset={2}>
@@ -165,36 +171,36 @@ class Room extends React.Component {
               </Row>
               <Row className={s.contentDescription}>
                   <h2>About This Listing </h2>
-                  {this.props.room.description.about}
+                  {this.props.room.descriptionAbout}
                    
-                  { this.props.room.description.theSpace ? 
+                  { this.props.room.descriptionTheSpace ? 
                     <div>
                       <h3>The Space</h3>
-                      <p>{this.props.room.description.theSpace}</p>
+                      <p>{this.props.room.descriptionTheSpace}</p>
                     </div> 
 
                     : '' }
 
-                  { this.props.room.description.guestAccess ? 
+                  { this.props.room.descriptionGuestAccess ? 
                     <div>
                       <h3>Guest Access</h3>
-                      <p>{this.props.room.description.guestAccess}</p>
+                      <p>{this.props.room.descriptionGuestAccess}</p>
                     </div> 
 
                     : '' }
 
-                    { this.props.room.description.interactionWithGuests ? 
+                    { this.props.room.descriptionInteractionWithGuests ? 
                     <div>
                       <h3>Interaction with Guests</h3>
-                      <p>{this.props.room.description.interactionWithGuests}</p>
+                      <p>{this.props.room.descriptionInteractionWithGuests}</p>
                     </div> 
 
                     : '' }
 
-                    { this.props.room.description.other ? 
+                    { this.props.room.descriptionOther ? 
                     <div>
                       <h3>Other things to note</h3>
-                      <p>{this.props.room.description.other}</p>
+                      <p>{this.props.room.descriptionOther}</p>
                     </div> 
 
                     : '' }
@@ -255,6 +261,7 @@ class Room extends React.Component {
           </Row>
         </Grid>
       </ThemeProvider>
+
     );
   }
 }

@@ -15,6 +15,7 @@ import {
 import me from './queries/me';
 import news from './queries/news';
 import room from './queries/room';
+import media from './queries/media';
 
 const schema = new Schema({
   query: new ObjectType({
@@ -23,6 +24,7 @@ const schema = new Schema({
       me,
       news,
       room,
+      media
     },
   }),
 });

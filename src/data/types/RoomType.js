@@ -7,10 +7,8 @@ import {
   GraphQLInt as IntegerType,
   GraphQLFloat as FloatType,
   GraphQLBoolean as BooleanType,
+  GraphQLJSON as JSONType,
 } from 'graphql';
-
-
-import { GraphQLJSON as JSONType } from 'graphql-type-json';
 
 const RoomType = new ObjectType({
   name: 'Room',
@@ -42,8 +40,13 @@ const RoomType = new ObjectType({
     priceWeek: { type: IntegerType },
     priceSpecial: { type: StringType },
     isInstantBookable: { type: new NonNull(BooleanType) },
-    images: { type: new NonNull(StringType) },
-    description: { type: new NonNull(StringType) },
+    mainImage: { type: new NonNull(StringType) },
+    otherImages: { type: StringType },
+    descriptionAbout: { type: StringType },
+    descriptionTheSpace: { type: StringType },
+    descriptionGuestAccess: { type: StringType },
+    descriptionInteractionWithGuests: { type: StringType },
+    descriptionOther: { type: StringType },
   },
 });
 

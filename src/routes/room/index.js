@@ -10,52 +10,40 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Room from './Room';
+import NotFound from '../notFound/NotFound';
 
 const title = 'Room';
 
 export default 
-  {path: '/room',
-
-  async action({ fetch }) {
-    const resp = await fetch('/graphql', {
-      body: JSON.stringify({
-        query: '{room(id: 1){id,host,headline,address1,address1,address2,city,state,zipcode,country,reviewsNumber,reviewsAverage,roomType,propertyType,checkInStart,checkInEnd,checkOutStart,checkOutEnd,bedrooms,guestsIncluded,guestsMax,beds,bathrooms,priceWeeknight,priceWeekend,priceWeek,priceSpecial,isInstantBookable,images,description}}',
-      }),
-    });
-
-    const { data } = await resp.json();
-
-    console.log(data.room.description.about);
-
-    if (!data || !data.room) throw new Error('Failed to load room.');
-
-    return {
-      title,
-      component: <Layout><Room title={title} room={data.room} /></Layout>,
-    };
-  }, 
-};
-
-/*
   {path: '/room/:id',
 
-  async action({ fetch, params }) {
+  async action({ fetch, params}) {
+
     const resp = await fetch('/graphql', {
       body: JSON.stringify({
-        query: '{room{id,host,location,listing,reviews}}',
-      }),
+        query: '{room(id: ' + params.id + '){id,host,headline,address1,address1,address2,city,state,zipcode,country,reviewsNumber,reviewsAverage,roomType,propertyType,checkInStart,checkInEnd,checkOutStart,checkOutEnd,bedrooms,guestsIncluded,guestsMax,beds,bathrooms,priceWeeknight,priceWeekend,priceWeek,priceSpecial,isInstantBookable,mainImage,otherImages,descriptionAbout,descriptionTheSpace,descriptionGuestAccess,descriptionInteractionWithGuests,descriptionOther}}',     }),
     });
 
     const { data } = await resp.json();
 
-    //console.log(${params.id}); 
 
+    if (!data || !data.room) {
+ 
+      data.customMessage = "That room does not exist. But don\'t fear, we have plenty more where that came from!";
 
-    if (!data || !data.room) throw new Error('Failed to load room.');
-    return {
-      title,
-      component: <Layout><Room title={title} /></Layout>,
+      return {
+        title,
+        component: <Layout><NotFound title="Umm.... Houston we have a problem!" customMessage={data.customMessage}/></Layout>,
+      }
+    } else {
+
+      return {
+        title,
+        component: <Layout><Room title={title} room={data.room} /></Layout>,
+      }
+
     };
-	}
-  }
-*/
+  },
+};
+
+

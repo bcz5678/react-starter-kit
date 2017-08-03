@@ -13,6 +13,7 @@ import UserLogin from './UserLogin';
 import UserClaim from './UserClaim';
 import UserProfile from './UserProfile';
 import Room from './Room';
+import Media from './Media';
 
 User.hasMany(UserLogin, {
   foreignKey: 'userId',
@@ -36,9 +37,11 @@ User.hasOne(UserProfile, {
 });
 
 
+
+
 function sync(...args) {
   return sequelize.sync(...args);
 }
 
 export default { sync };
-export { User, UserLogin, UserClaim, UserProfile, Room  };
+export { User, UserLogin, UserClaim, UserProfile, Room, Media  };

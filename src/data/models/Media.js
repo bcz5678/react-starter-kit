@@ -1,13 +1,11 @@
 import { bookshelf } from '../bookshelf';
 
 const Room = bookshelf.Model.extend({
-  tableName: 'Room',
+  tableName: 'Media',
   hasTimestamps: true,
-  media: function(){
-    return this.hasMany(Media);
+  room: function() {
+  	return this.belongsTo(Room);
   }
 });
 
 export default Room ;
-
-
