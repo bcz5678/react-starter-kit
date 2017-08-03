@@ -14,6 +14,22 @@ import s from './HomeCard.css';
 import Link from '../Link';
 import SvgIcon from 'material-ui/SvgIcon';
 
+function RatingStars(props) {
+    var base = Math.floor(props.rating);
+    var dec = props.rating % 1;
+
+    return(
+        <span>
+          {base >=1 ? <StarIconFilled></StarIconFilled> : (dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=2 ? <StarIconFilled></StarIconFilled> : (base == 1 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=3 ? <StarIconFilled></StarIconFilled> : (base == 2 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=4 ? <StarIconFilled></StarIconFilled> : (base == 3 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=5 ? <StarIconFilled></StarIconFilled> : (base == 4 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+        </span>
+    );
+}
+
+
 let StarIconFilled = (props) => {
     return(
       <SvgIcon {...props}>
@@ -56,10 +72,12 @@ class HomeCard extends React.Component {
     reviewsNumber: PropTypes.number.isRequired,
     houseType: PropTypes.string.isRequired,
     beds: PropTypes.number.isRequired,
+    avgRating: PropTypes.number.isRequired,
   };
 
   render() {
-    const { id, imgUrl, title, price, reviewsNumber, houseType, beds } = this.props;
+    const { id, imgUrl, title, price, reviewsNumber, houseType, beds, avgRating } = this.props;
+
     return (
       <div className={s.root}>
         <div className={s.container}>
@@ -68,11 +86,7 @@ class HomeCard extends React.Component {
             <h2 className={s.homeCardTitle}>${price} {title}</h2>
             <div className={s.homeCardDetails}>{houseType} - {beds} beds</div>
             <div className={s.homeCardReviews}>
-            <StarIconFilled></StarIconFilled>
-            <StarIconFilled></StarIconFilled>
-            <StarIconFilled></StarIconFilled>
-            <StarIconHalf></StarIconHalf>
-            <StarIconBlank></StarIconBlank>
+            <RatingStars rating={avgRating} />
             {reviewsNumber} Reviews
             </div>
           </Link>

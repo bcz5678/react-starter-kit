@@ -66,22 +66,22 @@ class Home extends React.Component {
             </Row>
             <Row className={s.homeCardGrid}>
               <Col xs={12} sm={6} md={4}>
-                <HomeCard id="1" imgUrl="test1.jpg" title="Test #1" price="85" houseType="Entire Apartment" beds="2" reviewsNumber="16"/>
+                <HomeCard id="1" imgUrl="test1.jpg" title="Test #1" price="85" houseType="Entire Apartment" beds="2" avgRating="3.5" reviewsNumber="16"/>
               </Col>
               <Col xs={12} sm={6} md={4}>
-                <HomeCard id="2" imgUrl="test2.jpg" title="Test #2" price="115" houseType="Entire Apartment" beds="2" reviewsNumber="65"/>
+                <HomeCard id="2" imgUrl="test2.jpg" title="Test #2" price="115" houseType="Entire Apartment" beds="2" avgRating="3.1" reviewsNumber="65"/>
               </Col>
               <Col xs={12} sm={6} md={4}>
-                <HomeCard id="3" imgUrl="test3.jpg" title="Test #3" price="79" houseType="Entire Apartment" beds="2" reviewsNumber="35"/>
+                <HomeCard id="3" imgUrl="test3.jpg" title="Test #3" price="79" houseType="Entire Apartment" beds="2" avgRating="4.7" reviewsNumber="35"/>
               </Col>
               <Col xs={12} sm={6} md={4}>
-                <HomeCard id="4" imgUrl="test4.jpg" title="Test #4" price="45" houseType="Entire Apartment" beds="2" reviewsNumber="13"/>
+                <HomeCard id="4" imgUrl="test4.jpg" title="Test #4" price="45" houseType="Entire Apartment" beds="2" avgRating="3.9" reviewsNumber="13"/>
               </Col>
               <Col xs={12} sm={6} md={4}>
-                <HomeCard id="5" imgUrl="test5.jpg" title="Test #5" price="67" houseType="Entire Apartment" beds="2" reviewsNumber="73"/>
+                <HomeCard id="5" imgUrl="test5.jpg" title="Test #5" price="67" houseType="Entire Apartment" beds="2" avgRating="4.2" reviewsNumber="73"/>
               </Col>
               <Col xs={12} sm={6} md={4}>
-                <HomeCard id="6" imgUrl="test6.jpg" title="Test #6" price="98" houseType="Entire Apartment" beds="2" reviewsNumber="25"/>
+                <HomeCard id="6" imgUrl="test6.jpg" title="Test #6" price="98" houseType="Entire Apartment" beds="2" avgRating="4.8" reviewsNumber="25"/>
               </Col>
             </Row>
           </Grid>
