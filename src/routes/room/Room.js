@@ -18,6 +18,10 @@ import ToggleStar from 'material-ui/svg-icons/toggle/star.js';
 import Avatar from 'material-ui/Avatar';
 import ImageFlashOn from 'material-ui/svg-icons/image/flash-on.js';
 import amber600 from 'material-ui/styles/colors';
+import DatePicker from 'material-ui/DatePicker';
+import FlatButton from 'material-ui/FlatButton';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 const fullTheme = {
   flexboxgrid: {
@@ -88,6 +92,9 @@ class Room extends React.Component {
     //  })).isRequired
   };
 
+  state = ({value: 1});
+
+  handleChange =(event, index, value) => this.setState({value});
 
 
   render() {
@@ -97,7 +104,7 @@ class Room extends React.Component {
       <ThemeProvider theme={fullTheme}>
         <Grid fluid={true}>
           <Row>
-            <img className={s.coverImage} src={"/dynamic/roomImages/" + this.props.host + "/" + this.props.room.mainImage} />
+            <img className={s.coverImage} src={"/dynamic/roomImages/" + this.props.room.id + "/" + this.props.room.mainImage} />
           </Row>
           <Row className={s.contentContainer}>
             <Col className={s.roomContainer} xs={12} md={6} mdOffset={2}>
@@ -250,7 +257,65 @@ class Room extends React.Component {
               { this.props.room.isInstantBookable &&  <ImageFlashOn color='#ffb300' />}${ this.props.room.priceWeeknight } per night
               </Row>
               <Row className={s.stickyBoxContent}>
-                StickyBox Content
+                <Row>
+                  <Col xs={12} md={6} >
+                    Check-in
+                    <div className={s.inputBorder}>
+                      <DatePicker container="inline" />
+                    </div>
+                  </Col>
+                  <Col xs={12} md={6}>
+                    Check-Out
+                    <div className={s.inputBorder}>
+                      <DatePicker container="inline" />
+                    </div>
+                  </Col>
+                </Row>
+                <Row>
+                  Guests
+                  <div className={s.inputBorder}>
+                    <SelectField 
+                    labelText="1 Guest"
+                    value={this.state.value}
+                    onChange = {this.handleChange}
+                    >
+                    <MenuItem value={1} primaryText="1 Guest" />
+                    <MenuItem value={2} primaryText="2 Guests" />
+                    <MenuItem value={3} primaryText="3 Guests" />
+                    <MenuItem value={4} primaryText="4 Guests" />
+                    <MenuItem value={5} primaryText="5 Guests" />
+                    </SelectField>
+                  </div>
+                </Row>
+                <Row>
+                  <FlatButton
+                    backgroundColor="#FF5A5F"
+                    hoverColor="#FF7E82"
+                    label="Request Booking"
+                    style="color:#fff;"
+                  />
+                </Row>
+                <Row>
+                  <span className={s.stickyboxSmall}> 100% Refundable - You will not be charged yet </span>
+                </Row>
+
+                <Row>
+                  <Col md={8}>
+                    <div className={s.stickyboxNotification}>
+                      <h4>This Home is on Peoples Minds</h4>
+                      <p>It's been viewed more than 500+ times in the past weeks.</p>
+                    </div>
+                  </Col>
+                  <Col md={3}>
+                    Image
+                  </Col>
+                </Row>
+              </Row>
+
+              <Row className={s.stickyWishlistContainer}>
+
+              Wishlist
+
               </Row>
             </Col>
           </Row>

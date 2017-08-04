@@ -20,11 +20,11 @@ function RatingStars(props) {
 
     return(
         <span>
-          {base >=1 ? <StarIconFilled></StarIconFilled> : (dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
-          {base >=2 ? <StarIconFilled></StarIconFilled> : (base == 1 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
-          {base >=3 ? <StarIconFilled></StarIconFilled> : (base == 2 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
-          {base >=4 ? <StarIconFilled></StarIconFilled> : (base == 3 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
-          {base >=5 ? <StarIconFilled></StarIconFilled> : (base == 4 && dec >=.5 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=1 ? <StarIconFilled></StarIconFilled> : (dec >=.3 && dec <= .7 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=2 ? <StarIconFilled></StarIconFilled> : (base == 1 && dec >=.3 && dec <= .7 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=3 ? <StarIconFilled></StarIconFilled> : (base == 2 && dec >=.3 && dec <= .7 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=4 ? <StarIconFilled></StarIconFilled> : (base == 3 && dec >=.3 && dec <= .7 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
+          {base >=5 ? <StarIconFilled></StarIconFilled> : (base == 4 && dec >=.3 && dec <= .7 ? <StarIconHalf></StarIconHalf> : <StarIconBlank></StarIconBlank>)}
         </span>
     );
 }

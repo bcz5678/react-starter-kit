@@ -51,7 +51,7 @@ class Home extends React.Component {
 
               <FlatButton
                   backgroundColor="#FF5A5F"
-                  hoverColor="#FF5A5F"
+                  hoverColor="#FF7E82"
                   label="Search"
                   style="color:#fff;"
               />

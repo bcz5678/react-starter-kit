@@ -16,7 +16,6 @@
   max-width: var(--max-content-width);
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid red;
 }
 
 .link {
@@ -27,4 +26,10 @@
 .homeCardTitle {
 	color: #484848;
 	margin-bottom: 0px;
+	font-size: 1.5em;
+}
+
+.homeCardImg {
+	width: 100%;
+	height:100%;
 }
