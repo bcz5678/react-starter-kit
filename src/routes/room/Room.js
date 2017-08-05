@@ -22,9 +22,9 @@ import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
+import IconButton from 'material-ui/IconButton';
+import ContentAddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
+import ContentRemoveCircleOutline from 'material-ui/svg-icons/content/remove-circle-outline';
 
 const fullTheme = {
   flexboxgrid: {
@@ -109,9 +109,17 @@ class Room extends React.Component {
 
   handleChange = (event, index, value) => {this.setState({guestDrops: value});}
 
-  incrementGuest = (event, index) => {this.setState({adults: this.state.adults + 1});}
+  incrementAdults = () => {this.setState({adults: this.state.adults + 1});}
   
-  decrementGuest = (event, index) => {this.setState({adults: this.state.adults - 1});}
+  decrementAdults = () => {this.setState({adults: this.state.adults - 1});}
+
+  incrementKids = () => {this.setState({kids: this.state.kids + 1});}
+  
+  decrementKids = () => {this.setState({kids: this.state.kids - 1});}
+
+  incrementInfants = () => {this.setState({infants: this.state.infants + 1});}
+  
+  decrementInfants = () => {this.setState({infants: this.state.infants - 1});}
   
 
   render() {
@@ -318,13 +326,13 @@ class Room extends React.Component {
                         Adults
                         </Col>
                         <Col md={9}>
-                          <FloatingActionButton  onClick = {this.incrementGuest.bind(this)}>
-                            <ContentAdd />
-                          </FloatingActionButton> 
+                          <IconButton onClick= {this.decrementAdults} disabled={this.state.adults == 0}>
+                            <ContentRemoveCircleOutline />
+                          </IconButton> 
                           {this.state.adults} Adults 
-                          <FloatingActionButton onClick= {this.decrementGuest.bind(this)}>
-                            <ContentRemove />
-                          </FloatingActionButton> 
+                          <IconButton  onClick = {this.incrementAdults}>
+                            <ContentAddCircleOutline />
+                          </IconButton> 
                         </Col>
                       </Row>
                       <Row>
@@ -332,14 +340,13 @@ class Room extends React.Component {
                         Kids
                         </Col>
                         <Col md={9}>
-                          
-                          <FloatingActionButton onClick = {this.incrementGuest.bind(this)}>
-                            <ContentAdd />
-                          </FloatingActionButton> 
+                          <IconButton onClick = {this.decrementKids} disabled={this.state.kids == 0}>
+                            <ContentRemoveCircleOutline />
+                          </IconButton> 
                           {this.state.kids} Kids
-                          <FloatingActionButton onClick = {this.decrementGuest.bind(this)}>
-                            <ContentRemove />
-                          </FloatingActionButton> 
+                          <IconButton onClick = {this.incrementKids}>
+                            <ContentAddCircleOutline />
+                          </IconButton> 
                         </Col>
                       </Row>
                       <Row>
@@ -347,13 +354,13 @@ class Room extends React.Component {
                         Infants
                         </Col>
                         <Col md={9}>
-                          <FloatingActionButton onClick = {this.incrementGuest.bind(this)}>
-                            <ContentAdd />
-                          </FloatingActionButton> 
+                          <IconButton onClick = {this.decrementInfants} disabled={this.state.infants == 0}>
+                            <ContentRemoveCircleOutline />
+                          </IconButton> 
                           {this.state.infants} Infants
-                          <FloatingActionButton onClick = {this.decrementGuest.bind(this)}>
-                            <ContentRemove />
-                          </FloatingActionButton> 
+                          <IconButton onClick = {this.incrementInfants}>
+                            <ContentAddCircleOutline />
+                          </IconButton> 
                         </Col>
                       </Row>
                     </div>
