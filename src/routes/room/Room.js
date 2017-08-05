@@ -22,6 +22,9 @@ import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import ContentRemove from 'material-ui/svg-icons/content/remove';
 
 const fullTheme = {
   flexboxgrid: {
@@ -81,6 +84,17 @@ const pathToRoomImages = require.context('../../media/roomImages/',true);
  
 
 class Room extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {  guestsDrop: 1, 
+                    adults: 1, 
+                    kids: 0, 
+                    infants: 0
+                  };
+  }
+
+
   static propTypes = {
     title: PropTypes.string.isRequired,
     //room: PropTypes.objectOf(PropTypes.shape({
@@ -92,10 +106,13 @@ class Room extends React.Component {
     //  })).isRequired
   };
 
-  state = ({value: 1});
 
-  handleChange =(event, index, value) => this.setState({value});
+  handleChange = (event, index, value) => {this.setState({guestDrops: value});}
 
+  incrementGuest = (event, index) => {this.setState({adults: this.state.adults + 1});}
+  
+  decrementGuest = (event, index) => {this.setState({adults: this.state.adults - 1});}
+  
 
   render() {
 
@@ -276,7 +293,7 @@ class Room extends React.Component {
                   <div className={s.inputBorder}>
                     <SelectField 
                     labelText="1 Guest"
-                    value={this.state.value}
+                    value={this.state.guestDrops}
                     onChange = {this.handleChange}
                     >
                     <MenuItem value={1} primaryText="1 Guest" />
@@ -284,6 +301,62 @@ class Room extends React.Component {
                     <MenuItem value={3} primaryText="3 Guests" />
                     <MenuItem value={4} primaryText="4 Guests" />
                     <MenuItem value={5} primaryText="5 Guests" />
+                    </SelectField>
+                  </div>
+                </Row>
+                <Row>
+                  Guests #2
+                  <div className={s.inputBorder}>
+                    <SelectField 
+                    labelText="1 Guest"
+                    value={this.state.value}
+                    onChange = {this.handleChange}
+                    >
+                    <div>
+                      <Row>
+                        <Col md={3}>
+                        Adults
+                        </Col>
+                        <Col md={9}>
+                          <FloatingActionButton  onClick = {this.incrementGuest.bind(this)}>
+                            <ContentAdd />
+                          </FloatingActionButton> 
+                          {this.state.adults} Adults 
+                          <FloatingActionButton onClick= {this.decrementGuest.bind(this)}>
+                            <ContentRemove />
+                          </FloatingActionButton> 
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={3}>
+                        Kids
+                        </Col>
+                        <Col md={9}>
+                          
+                          <FloatingActionButton onClick = {this.incrementGuest.bind(this)}>
+                            <ContentAdd />
+                          </FloatingActionButton> 
+                          {this.state.kids} Kids
+                          <FloatingActionButton onClick = {this.decrementGuest.bind(this)}>
+                            <ContentRemove />
+                          </FloatingActionButton> 
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={3}>
+                        Infants
+                        </Col>
+                        <Col md={9}>
+                          <FloatingActionButton onClick = {this.incrementGuest.bind(this)}>
+                            <ContentAdd />
+                          </FloatingActionButton> 
+                          {this.state.infants} Infants
+                          <FloatingActionButton onClick = {this.decrementGuest.bind(this)}>
+                            <ContentRemove />
+                          </FloatingActionButton> 
+                        </Col>
+                      </Row>
+                    </div>
                     </SelectField>
                   </div>
                 </Row>
