@@ -9,6 +9,7 @@
 
 import DataType from 'sequelize';
 import Model from '../sequelize';
+import bcrypt from 'bcrypt-nodejs';
 
 const User = Model.define('User', {
 
@@ -28,12 +29,33 @@ const User = Model.define('User', {
     defaultValue: false,
   },
 
+  password: {
+    type: DataType.STRING(255)
+  },
+
 }, {
 
   indexes: [
     { fields: ['email'] },
   ],
 
+  classMethods: {
+    generateHash: function(password) {
+      return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+    }
+  },
+
+  instanceMethods: {
+    verifyPassword: function(password) {
+      console.log(password + " - " + this.password);
+      return bcrypt.compareSync(password, this.password);
+    },
+
+    generateHash: function(password) {
+      return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+    }
+
+  }
 });
 
 export default User;

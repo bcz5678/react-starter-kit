@@ -10,6 +10,7 @@
 import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import session from 'express-session';
 import bodyParser from 'body-parser';
 import expressJwt, { UnauthorizedError as Jwt401Error } from 'express-jwt';
 import expressGraphQL from 'express-graphql';
@@ -29,6 +30,7 @@ import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
 import graphQLBookshelf from 'graphql-bookshelfjs';
+import flash from 'connect-flash';
 
 const app = express();
 
@@ -46,6 +48,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
 
 //
 // Authentication
@@ -66,7 +70,28 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   }
 });
 
+//app.use(session({cookie : {maxAge: 6000}}));
+
 app.use(passport.initialize());
+app.use(passport.session());
+app.use(session({
+  secret: "seupersecretythings",
+  cookie: {maxAge: 6000},
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(flash());
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+ 
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
 
 if (__DEV__) {
   app.enable('trust proxy');
@@ -83,6 +108,27 @@ app.get('/login/facebook/return',
     res.redirect('/');
   },
 );
+
+
+// process the login form
+app.post('/login', passport.authenticate('local-login', {
+  successRedirect : '/profile', // redirect to the secure profile section
+  failureRedirect : '/loginFailure', // redirect back to the signup page if there is an error
+  failureFlash : true // allow flash messages
+}));
+
+
+
+// SIGNUP =================================
+// show the signup form
+
+// process the signup form
+app.post('/register', passport.authenticate('local-signup', {
+    successRedirect : '/profile', // redirect to the secure profile section
+    failureRedirect : '/registerFailure', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
+}));
+
 
 //
 // Register API middleware

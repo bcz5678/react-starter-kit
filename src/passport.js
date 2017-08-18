@@ -15,6 +15,7 @@
 
 import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
+import { Strategy as LocalStrategy } from 'passport-local';
 import { User, UserLogin, UserClaim, UserProfile } from './data/models';
 import config from './config';
 
@@ -121,7 +122,74 @@ passport.use(new FacebookStrategy({
     }
   };
 
-  fooBar().catch(done);
+      fooBar().catch(done);
+    },
+  ),
+);
+
+// Login Strategy
+
+passport.use('local-login', new LocalStrategy({
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true,
+  },
+  function(req, email, password, done) {
+
+    console.log("starting passport function - " + email + ":" + password);
+
+    User.findOne({where: { email : email }}).then(function (user) {
+      console.log("in then function - " + user);
+      if (!user) { return done(null, false, req.flash("errorMessage", "No Username")); }
+      if (!user.verifyPassword(password)) { return done(null, false, req.flash("errorMessage", "Bad Password")); }
+      return done(null, user);
+    })
+    .catch(function(err) {
+        console.log("in catch message");
+       return done(err); 
+    });
+  }
+));
+
+
+// Signup Strategy
+
+
+passport.use('local-signup', new LocalStrategy({
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true,
+  },
+  function(req, email, password, done) {
+    console.log("in signup callback");
+
+    process.nextTick(function() {
+
+      User.findOne({ where: {email : email}}).then(function(user) {
+        console.log("in then function - " + user);
+        // check to see if theres already a user with that email
+        if (user) {
+           console.log("in user taken function - " + user); 
+            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+        } else {
+
+            console.log("in user not taken function - " + user); 
+            // if there is no user with that email
+            // create the user
+            var newUser = User.create({
+              email: email,
+              password : User.generateHash(password),
+            })
+            console.log(user);
+          return done(null, user);
+        }
+      })
+      .catch(function(err) {
+        console.log("in catch message");
+        return done(err);
+      }); 
+    });
 }));
+
 
 export default passport;

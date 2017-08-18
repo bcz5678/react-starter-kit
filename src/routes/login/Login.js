@@ -15,6 +15,7 @@ import s from './Login.css';
 class Login extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    errors: PropTypes.object,
   };
 
   render() {
@@ -87,14 +88,14 @@ class Login extends React.Component {
           <strong className={s.lineThrough}>OR</strong>
           <form method="post">
             <div className={s.formGroup}>
-              <label className={s.label} htmlFor="usernameOrEmail">
-                Username or email address:
+              <label className={s.label} htmlFor="email">
+                Email address:
               </label>
               <input
                 className={s.input}
-                id="usernameOrEmail"
+                id="email"
                 type="text"
-                name="usernameOrEmail"
+                name="email"
                 autoFocus
               />
             </div>
